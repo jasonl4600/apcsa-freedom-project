@@ -12,7 +12,7 @@
 * Throughout the 2d canvas, the blue box represents your game window
 * I downloaded a pack full of assets such as backgrounds. Based on the tutorial I'm following I added a background png from the texture pack into the file. Using this I created a new node, TextureRect and dragged the png into it to create our background.
 * Creating a new node child node, TileMap allows me to give it a terrain based on the texture pack and access terrain material from that texture pack. With it I can add tiles and create a map.
-* [alt text](1image.png)
+* [alt text](image1.png)
 
 ### X/X/XX:
 * Text
