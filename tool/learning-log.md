@@ -23,7 +23,54 @@
 * There is an issue with this though, when moving the sprite and its hitbox they are separate. We need to create a subscene for those two to be one object
 * We create a scene in the Character node which basically saves all contents of the subfiles such as sprite and collision as one object. In order to edit them we can simply open up this scene where we will see the two folders separate again.
 * Note (In order to save an edited scene simply press CTRL + S)
-* 
+
+### 11/11/2024:
+* The next step for me is to create code that allows me to move my character throughout the map/scene
+* The first thing I did based was go to the Character scene I previous saved and created. I then opened a script in the root node which allows me to create and integrate a script onto the node
+* We are given an option for a script template for the specific node "CharacterBody2D" and in this scenario Godot has a built in template for sprite movement which we will be utilizing
+* This is what the code looks like:
+```java
+extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+
+```
+* Now gravity and basic movement is applied to the character
+* The next issue comes with the fact that all we have is a character with gravity and a scene
+* The scene doesn't physically have any collision which is what we will be creating next.
+* I then proceed to add collision onto my map by going to the tile map node, selecting tile set, opening physics layer and finally adding element
+* We then go on to opening our tileset adding the physics property onto it which allows us to paint or highlight the tiles that we want affected by physics. I simply painted all the tiles and now collision on blocks is possible meaning there are surfaces to walk on
+* One thing to note with the code is instead of :
+```java
+var direction := Input.get_axis("ui_left", "ui_right")
+```
+* I changed it to:
+```java
+var direction := Input.get_axis("move_left", "move_right")
+```
+* For personal preference I changed the key inputs from left and right keys to "A" and "D" for left and right. I did this by going to project settings on godot, selecting input map, creating my two inputs move_left and move_right, then assigning them respectively their own inputs "A" and "D". Now I assigned this to the same code so the function is the same but the inputs are different.
 
 <!--
 * Links you used today (websites, videos, etc)
