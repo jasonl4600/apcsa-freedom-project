@@ -72,6 +72,16 @@ var direction := Input.get_axis("move_left", "move_right")
 ```
 * For personal preference I changed the key inputs from left and right keys to "A" and "D" for left and right. I did this by going to project settings on godot, selecting input map, creating my two inputs move_left and move_right, then assigning them respectively their own inputs "A" and "D". Now I assigned this to the same code so the function is the same but the inputs are different.
 
+### 11/25/2024:
+* Continuing with my game in Godot I have created a map, sprite, hitboxes, collisions, and movement
+* The next thing I need to do is add animations onto the sprite
+* The first step was changing my Node: Sprite2D into a Animated2DSprite type
+* I turned the setting for animation type into Sprite animation and then added all my animation files into the Godot engine where files and folders are typically stored.
+* Clicking the grid button while in the Sprite2D tab allows me to add frames from a sprite sheet, I subsequently adjust the pixels of the sprite sheet in order for it to fit within the game.
+* ![alt text](image.png)
+* Subsequently did the same thing for jumping and running animations and looped them within the game.
+* One issue though is I need to figure out how to alternate throughout these animations so that when I'm standing still, idle animation plays, vice versa.
+* At this point on only the selected animation will play when I run the scene.
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
