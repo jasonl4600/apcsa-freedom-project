@@ -82,6 +82,22 @@ var direction := Input.get_axis("move_left", "move_right")
 * Subsequently did the same thing for jumping and running animations and looped them within the game.
 * One issue though is I need to figure out how to alternate throughout these animations so that when I'm standing still, idle animation plays, vice versa.
 * At this point on only the selected animation will play when I run the scene.
+
+### 12/9/2024
+* In Godot the x and y axis' operate differently from standard convention. Positive values are directed at the bottom. If I recall correctly this is similar to how the canvas works in P5JS
+* For the animation of my sprite, the animation only moves one way. What I mean by this is when running to the right or left it plays the same animation. 
+* In order to fix this, in the offset section of for the Sprite2D Node, there is a button that flips the sprite and it's animation. I can flip it vertically or horizontally.
+* I will need to add to my code where turning left flips it horizontally and turning right flips it horizontally where it faces the right similarly.
+* Essentially I will have to access the node through the script.
+* In order to save a reference of your node in the script. You can drag your node into the script. To make sure it stays as a reference, hold ctrl before releasing it into your script.
+* We create a reference of our node like the name implies to use it for later for convenience.
+```
+var isLeft = velocity.x < 0
+	sprite_2d.flip_h = isLeft
+```
+* The two lines of code created stores an indicator of if our player is inputting the key to move to the left and if that is the case the sprite flips horizontally. Now as shown below when the sprite isn't any direction other than neutral and right, it flips horizontally. 
+![alt text](image-1.png)
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
