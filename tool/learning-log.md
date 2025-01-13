@@ -85,7 +85,7 @@ var direction := Input.get_axis("move_left", "move_right")
 
 ### 12/9/2024
 * In Godot the x and y axis' operate differently from standard convention. Positive values are directed at the bottom. If I recall correctly this is similar to how the canvas works in P5JS
-* For the animation of my sprite, the animation only moves one way. What I mean by this is when running to the right or left it plays the same animation. 
+* For the animation of my sprite, the animation only moves one way. What I mean by this is when running to the right or left it plays the same animation.
 * In order to fix this, in the offset section of for the Sprite2D Node, there is a button that flips the sprite and it's animation. I can flip it vertically or horizontally.
 * I will need to add to my code where turning left flips it horizontally and turning right flips it horizontally where it faces the right similarly.
 * Essentially I will have to access the node through the script.
@@ -95,9 +95,29 @@ var direction := Input.get_axis("move_left", "move_right")
 var isLeft = velocity.x < 0
 	sprite_2d.flip_h = isLeft
 ```
-* The two lines of code created stores an indicator of if our player is inputting the key to move to the left and if that is the case the sprite flips horizontally. Now as shown below when the sprite isn't any direction other than neutral and right, it flips horizontally. 
+* The two lines of code created stores an indicator of if our player is inputting the key to move to the left and if that is the case the sprite flips horizontally. Now as shown below when the sprite isn't any direction other than neutral and right, it flips horizontally.
 ![alt text](image-1.png)
 
+### 1/13/2025
+* Moving on I started adding consequent animation tweaks based off of movement with my sprite sheet. If the player jumps it should play the jump animation, etc.
+* You do this under the physics function. It's pretty simple as you assign the sprite an animation based on your conditional shown below.
+```java
+if not is_on_floor():
+		velocity += get_gravity() * delta
+		sprite_2d.animation = "jumping"
+```
+```java
+if (velocity.x > 1 || velocity.x < -1):
+		sprite_2d.animation = "running"
+	else:
+			sprite_2d.animation = "default"
+```
+* In Godot physics, velocity is measured based off of maximum velocity, and something called steps. As you stop holding a movement key you will lose a value amount of steps gradually. My maximum velocity would be 300 and if my steps were 300 then my character would stop instantly. To create more realistic movement where you gradually slow down rather than immediately, I tweaked the step loss count in the code below.
+```java
+velocity.x = move_toward(velocity.x, 0, 10)
+```
+* Previously the steps was assigned to our speed variable which determines our maximum velocity meaning you would stop immediately. Now having a step value of 10 you slow down then stop.
+* Something to note is gravity is changed in Godot's project settings.
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
