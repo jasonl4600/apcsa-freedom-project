@@ -37,7 +37,7 @@
 - [ ] Level transitions
 - [ ] Player enhancements or in game modifiers
 - [ ] Adding audio for players/background/enemies/terrain
-- [] Quality of life options (I.E Pause, Tutorial, Instructions)
+- [ ] Quality of life options (I.E Pause, Tutorial, Instructions)
 
 <!-- EXAMPLE
 
