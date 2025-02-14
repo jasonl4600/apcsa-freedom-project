@@ -1,7 +1,7 @@
 # Plan
 
-## Tool: 
-## Product: 
+## Tool: Godot
+## Product: Platformer
 
 ---
 
