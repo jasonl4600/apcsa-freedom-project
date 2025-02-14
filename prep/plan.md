@@ -12,11 +12,32 @@
 - [ ] Task (deadline: X)
   - [ ] Subtask (deadline: X)
 
+- [ ] Task (Deadline: End of Feb Break)
+  - [x] Figure out core mechanics necessary to create a barebone minimum single level platformer
+  - [x] Have functioning player movement
+  - [x] Functional platforms with working collision and physics
+  - [ ] Camera that follows the player
+  - [ ] Enemies or Non player sprites/characters to be added
+
+- [ ] Task (Deadline: March 1st)
+  - [ ] Win condition for my base game
+  - [ ] Player death feature (At least one but ideally multiple different ways to die)
+  - [ ] Enemies that roam the stage
+  - [ ] Working animation for sprites that should have them (Player, Enemies, Objects, Etc)
+  - [ ] Adding and creating function/UI for starting the game and restarting after death (May be beyond mvp depending on progress up to this point)
+
+- [ ] Task (Deadline: March 17th)
+  - [ ] 
+
 #### Beyond MVP
 
-- [ ] Task
-  - [ ] Subtask
-
+- [ ] Ways to defeat enemies such as attacks
+- [ ] Any interesting gimmicks that could be applied to a platformer using the Godot engine
+- [ ] Second level and more (Can be part of MVP if all other necessary requirements for my project are met at an earlier date)
+- [ ] Level transitions
+- [ ] Player enhancements or in game modifiers
+- [ ] Adding audio for players/background/enemies/terrain
+- [] Quality of life options (I.E Pause, Tutorial, Instructions)
 
 <!-- EXAMPLE
 
