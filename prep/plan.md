@@ -27,7 +27,7 @@
   - [ ] Adding and creating function/UI for starting the game and restarting after death (May be beyond mvp depending on progress up to this point)
 
 - [ ] Task (Deadline: March 17th)
-  - [ ] 
+  - [ ] Task to be added on based on how much of previous work has been fulfilled for a minimum working platformer  
 
 #### Beyond MVP
 
