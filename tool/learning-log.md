@@ -118,6 +118,13 @@ velocity.x = move_toward(velocity.x, 0, 10)
 ```
 * Previously the steps was assigned to our speed variable which determines our maximum velocity meaning you would stop immediately. Now having a step value of 10 you slow down then stop.
 * Something to note is gravity is changed in Godot's project settings.
+
+### 3/2/2025
+* As per my MVP plan I completed the steps I've given myself in order to complete my MVP within the deadline
+* I was able to create a camera function that follows my character sprite within movement. This was done by accessing my main character scene which is basically a folder/space where all actions/functions take place for my sprite. I accessed my CharacterBody2D node and gave it a child node Camera2D. This function gives the ability to manipulate the camera within the game. This allows the camera to follow the specific sprite and I can also control the zoom of it, etc.
+* One issue I did have with this is the fact that the "default" camera view was out of place compared to where the map was. This meant my camera was showing void and not where my player would have been. The player and map are two separate scenes so I had to update both of them in order to fix this problem.
+* I added another sprite that will act as an "enemy" and gave it animations and physics functions like my character sprite. I plan on finding ways to give him actions next. I will also start brainstorming win conditions within my game as per my MVP plan.
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
