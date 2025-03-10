@@ -125,6 +125,12 @@ velocity.x = move_toward(velocity.x, 0, 10)
 * One issue I did have with this is the fact that the "default" camera view was out of place compared to where the map was. This meant my camera was showing void and not where my player would have been. The player and map are two separate scenes so I had to update both of them in order to fix this problem.
 * I added another sprite that will act as an "enemy" and gave it animations and physics functions like my character sprite. I plan on finding ways to give him actions next. I will also start brainstorming win conditions within my game as per my MVP plan.
 
+### 3/10/2025
+* Continuing from where I left off, following my MVP I created conditions for my game. The first step in doing this is a suitable way to "lose". The most basic way to lose is falling off the map so to test for now, I created a hole in my map where the character can fall out of bounds
+* This worked but the camera function I had in place earlier made it so I would forever be following my character as it descended below the enclosed platform area. In order to fix this I went to my camera Camera2D node and within this node I can limit the canvas of the camera. What this means is I can make the camera stop moving a certain direction after it reaches the limit I give it. I gave it a limit of 100 pixels down meaning once the camera travels 100 pixels down, it stops following the player downwards.
+* In addition to this I have also created a lose screen once that specific limit is reached by the camera. In order to do this, I created a new scene that displays a "LOSE" screen as Godot shifts onto that scene once the specific limit is reached.
+* Following my MVP I will have to finish this by creating a win condition as I have now created my lose condition.
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
