@@ -131,6 +131,19 @@ velocity.x = move_toward(velocity.x, 0, 10)
 * In addition to this I have also created a lose screen once that specific limit is reached by the camera. In order to do this, I created a new scene that displays a "LOSE" screen as Godot shifts onto that scene once the specific limit is reached.
 * Following my MVP I will have to finish this by creating a win condition as I have now created my lose condition.
 
+### 3/16/2025
+* As part of a sub win condition for my realized project I'll be adding a score feature within my game. The first thing I knew I had to do was implement the necessary sprites and animations in order to have them ready for use. The next thing was to script the score system with a counter for picking up a coin, and in general the "picking up" action from collision between the player and sprite in order to "pick up" the coin
+* Promptly I followed what I previously did for animations and adjusted the frame rate and refresh for the animation. The coin has its own node. In the script file for my coin node:
+
+```c++
+func _on_body_entered(body):
+	print("+1 coin!")
+	queue_free()
+```
+
+* This code above is what allows the player to pick up the coin, and count a score. The function starting this registers when our character sprite touches the coin. queue_free() is the method that makes it so when the action of that specific function is fulfilled, in this case it is touching the coin, the specific coin leaves the scene. This allows it to dissapear from the game once it's touched making it so our character "picked up" the coin.
+* I will be implementing this as one of x amount of ways to proceed onto another level. What I plan on doing is you can either get x amount of coins or beat x amount of enemies as conditions to move onto another level as the win condition.
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
