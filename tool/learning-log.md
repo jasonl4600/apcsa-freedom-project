@@ -131,7 +131,7 @@ velocity.x = move_toward(velocity.x, 0, 10)
 * In addition to this I have also created a lose screen once that specific limit is reached by the camera. In order to do this, I created a new scene that displays a "LOSE" screen as Godot shifts onto that scene once the specific limit is reached.
 * Following my MVP I will have to finish this by creating a win condition as I have now created my lose condition.
 
-### 3/16/2025
+### 3/24/2025
 * As part of a sub win condition for my realized project I'll be adding a score feature within my game. The first thing I knew I had to do was implement the necessary sprites and animations in order to have them ready for use. The next thing was to script the score system with a counter for picking up a coin, and in general the "picking up" action from collision between the player and sprite in order to "pick up" the coin
 * Promptly I followed what I previously did for animations and adjusted the frame rate and refresh for the animation. The coin has its own node. In the script file for my coin node:
 
@@ -143,6 +143,21 @@ func _on_body_entered(body):
 
 * This code above is what allows the player to pick up the coin, and count a score. The function starting this registers when our character sprite touches the coin. queue_free() is the method that makes it so when the action of that specific function is fulfilled, in this case it is touching the coin, the specific coin leaves the scene. This allows it to dissapear from the game once it's touched making it so our character "picked up" the coin.
 * I will be implementing this as one of x amount of ways to proceed onto another level. What I plan on doing is you can either get x amount of coins or beat x amount of enemies as conditions to move onto another level as the win condition.
+
+* After adding some necessary implementations in order to get my MVP done, I started expanding on the map. So far I've only been testing out how the tilemaps work and essentially have just a base plate and a few blocks to try everything. I looked for a new resource pack that specializes in map layouts with it containing many different tiles that can be used to create different environemnts and areas. I did a little of expansion and area building to make a more interactive and larger map I can use for now in order to test more functions and game mechanics
+* Using my basic enemy sprite, I've given it a way to kill the player. This type of enemy sprite is just a simple one that moves and kills the player on touch.
+
+```gdscript
+func _process(delta):
+	if ray_cast_right.is_colliding():
+		direction = -1
+	if ray_cast_left.is_colliding():
+		direction = 1
+	
+	position.x += direction + SPEED + delta
+```
+* This code above is a simple way to make the sprite move one direction, albeit, when colliding with an object, the course of direction the enemy sprite takes changes. I will need to figure out how on player collision I can transfer the game to the death screen.
+* I also plan on having my first level be a sort of tutorial level. What I have done for this is implement text throughout the background of the game scene for what needs to be done at certain parts of the level. For example the first jump necessary to move on has the text "Press Space" printed as a QOL feature to help players out throughout the first stage as a tutorial. I believe utilizing something like this can be handy when introducing new features players may not be familiar with when playing the game for the first time. 
 
 <!--
 * Links you used today (websites, videos, etc)
