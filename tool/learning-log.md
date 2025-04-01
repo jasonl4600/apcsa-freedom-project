@@ -159,6 +159,16 @@ func _process(delta):
 * This code above is a simple way to make the sprite move one direction, albeit, when colliding with an object, the course of direction the enemy sprite takes changes. I will need to figure out how on player collision I can transfer the game to the death screen.
 * I also plan on having my first level be a sort of tutorial level. What I have done for this is implement text throughout the background of the game scene for what needs to be done at certain parts of the level. For example the first jump necessary to move on has the text "Press Space" printed as a QOL feature to help players out throughout the first stage as a tutorial. I believe utilizing something like this can be handy when introducing new features players may not be familiar with when playing the game for the first time. 
 
+### 4/1/2025
+* For this week I decided on creating a new area/scene. I want to be able to meet a condition and transition from one scene to another or basically just another level in simple terms. I created a new parent node, "Area2D" in order to represent the new scene or level our character will be brought to.
+* I used a figurehead that has collision features that allows for the conditional of being collided with by our character sprite it transitions into this "Area2D" node which is just our new scene.
+```gdscript
+func next_level():
+	current_area +=1
+	var full_path = area_path + "area_" + str(current,area) + ".tscn"
+	print ("Stage 2 (Testing)")
+```
+* This is the code that represents the transition from the first scene to the second. I believe this to be just a successful step to creating a framework for the beyond MVP and a new scene in general isn't really rooted to having a complete MVP but can be a good addition. Moving on as the due date is around spring break I will be focusing on fleshing out everything I've planned in my MVP plan and getting those done.
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
